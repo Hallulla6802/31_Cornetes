@@ -57,7 +57,7 @@ public class ControlRivalStates : MonoBehaviour
             // If the rival is in PreparingPunch, transition to Punching after a short delay
             if (currentRivalState == RivalState.PreparingPunch)
             {
-                yield return new WaitForSeconds(Random.Range(0.5f, 1.5f)); // Short delay before punching
+                yield return new WaitForSeconds(Random.Range(0.5f, 1f));
                 currentRivalState = RivalState.Punching;
             }
             else
@@ -75,16 +75,16 @@ public class ControlRivalStates : MonoBehaviour
                 // If the new state is PreparingPunch, ensure the next state will be Punching
                 if (currentRivalState == RivalState.PreparingPunch)
                 {
-                    // Log the transition to PreparingPunch (for debugging)
+                    
                     Debug.Log("Rival State: Preparing Punch");
 
-                    // Wait for another random interval before transitioning to Punching
-                    yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
+                    
+                    yield return new WaitForSeconds(Random.Range(0.5f, 1f));
                     currentRivalState = RivalState.Punching;
                 }
             }
 
-            // Log the current state (for debugging purposes)
+            // Loggerinor
             Debug.Log("Rival State: " + currentRivalState);
 
         }
