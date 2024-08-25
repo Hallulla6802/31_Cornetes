@@ -22,29 +22,59 @@ public class ControllPlayerState : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.H))
+        if(currentstate == PlayerState.PreparingPunch)
         {
-            currentstate = PlayerState.PreparingPunch;
-            Debug.Log("Preparing Punch");
-            debugText.SetText("Preparing Punch");
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                currentstate = PlayerState.Punching;
+                Debug.Log("Punching");
+                debugText.SetText("Punching");
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.L))
+        else
         {
-            currentstate = PlayerState.Blocking;
-            Debug.Log("Blocking");
-            debugText.SetText("Blocking");
+            if (Input.GetKeyDown(KeyCode.H))
+            {
+                currentstate = PlayerState.PreparingPunch;
+                Debug.Log("Preparing Punch");
+                debugText.SetText("Preparing Punch");
+            }
+            else if (Input.GetKeyDown(KeyCode.L))
+            {
+                currentstate = PlayerState.Blocking;
+                Debug.Log("Blocking");
+                debugText.SetText("Blocking");
+            }
+            else if (Input.GetKeyDown(KeyCode.K))
+            {
+                currentstate = PlayerState.Idle;
+                Debug.Log("Idle");
+                debugText.SetText("Idle");
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.J))
+
+        
+    }
+
+    private void FixedUpdate()
+    {
+        switch (currentstate)
         {
-            currentstate = PlayerState.Punching;
-            Debug.Log("Punching");
-            debugText.SetText("Punching");
-        }
-        else if (Input.GetKeyDown(KeyCode.K))
-        {
-            currentstate = PlayerState.Idle;
-            Debug.Log("Idle");
-            debugText.SetText("Idle");
+            case PlayerState.Idle:
+                //Whatever Idle does
+                break;
+
+            case PlayerState.PreparingPunch:
+                //whatever preparing punch does
+                break;
+
+            case PlayerState.Punching:
+                //Whatever Punching does
+                break;
+
+            case PlayerState.Blocking:
+                //Whatever Blocking does
+                break;
         }
     }
 }
