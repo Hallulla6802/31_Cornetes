@@ -51,41 +51,13 @@ public class ControlRivalStates : MonoBehaviour
     {
         while (true)
         {
-
+            
             yield return new WaitForSeconds(Random.Range(0.5f, 1f));
 
-            // If the rival is in PreparingPunch, transition to Punching after a short delay
-            if (currentRivalState == RivalState.PreparingPunch)
-            {
-                yield return new WaitForSeconds(Random.Range(0.5f, 1f));
-                currentRivalState = RivalState.Punching;
-            }
-            else
-            {
-                // Randomly select a new state, excluding Punching
-                RivalState newState;
-                do
-                {
-                    newState = (RivalState)Random.Range(0, System.Enum.GetValues(typeof(RivalState)).Length);
-                } while (newState == RivalState.Punching);
-
-                // Set the new state
-                currentRivalState = newState;
-
-                // If the new state is PreparingPunch, ensure the next state will be Punching
-                if (currentRivalState == RivalState.PreparingPunch)
-                {
-                    
-                    Debug.Log("Rival State: Preparing Punch");
-
-                    
-                    yield return new WaitForSeconds(Random.Range(0.5f, 1f));
-                    currentRivalState = RivalState.Punching;
-                }
-            }
-
-            // Loggerinor
-            Debug.Log("Rival State: " + currentRivalState);
+            // Random state
+            currentRivalState = (RivalState)Random.Range(0, System.Enum.GetValues(typeof(RivalState)).Length);
+            
+           // Debug.Log("Rival State: " + currentRivalState);
 
         }
     }

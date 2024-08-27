@@ -1,14 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Collections;
 
 public class ControllPlayerState : MonoBehaviour
 {
     [Header("Debug Text")]
     [Space]
-
     public TextMeshProUGUI debugText;
+    public float returnToIdleTimer;
 
     public enum PlayerState
     {
@@ -18,64 +17,89 @@ public class ControllPlayerState : MonoBehaviour
         Blocking
     }
 
-    public PlayerState currentstate = PlayerState.Idle;
+    public PlayerState currentState = PlayerState.Idle;
+
+    private Coroutine returnToIdleCoroutine;
+
+    private void Start()
+    {
+        currentState = PlayerState.Idle;
+    }
 
     private void Update()
     {
-        if(currentstate == PlayerState.PreparingPunch)
+        // Handle Blocking state based on key press and release
+        if (Input.GetKey(KeyCode.L) && !(currentState == PlayerState.Punching) && !(currentState == PlayerState.PreparingPunch))
         {
-            if (Input.GetKeyDown(KeyCode.J))
-            {
-                currentstate = PlayerState.Punching;
-                Debug.Log("Punching");
-                debugText.SetText("Punching");
-            }
+            currentState = PlayerState.Blocking;
+            Debug.Log("Blocking");
         }
-        else
+        else if (currentState == PlayerState.Blocking && !Input.GetKey(KeyCode.L))
         {
-            if (Input.GetKeyDown(KeyCode.H))
-            {
-                currentstate = PlayerState.PreparingPunch;
-                Debug.Log("Preparing Punch");
-                debugText.SetText("Preparing Punch");
-            }
-            else if (Input.GetKeyDown(KeyCode.L))
-            {
-                currentstate = PlayerState.Blocking;
-                Debug.Log("Blocking");
-                debugText.SetText("Blocking");
-            }
-            else if (Input.GetKeyDown(KeyCode.K))
-            {
-                currentstate = PlayerState.Idle;
-                Debug.Log("Idle");
-                debugText.SetText("Idle");
-            }
+            SetState(PlayerState.Idle);
+            Debug.Log("Returning to Idle from Blocking");
         }
 
-        
+        // Handle PreparingPunch and Punching state transitions
+        if (currentState == PlayerState.Idle && Input.GetKeyDown(KeyCode.H))
+        {
+            SetState(PlayerState.PreparingPunch);
+            Debug.Log("Preparing Punch");
+        }
+        else if (currentState == PlayerState.PreparingPunch && Input.GetKeyDown(KeyCode.H))
+        {
+            SetState(PlayerState.Punching);
+            Debug.Log("Punching");
+        }
+
+        // Update the debug text
+        debugText.SetText(currentState.ToString());
     }
 
     private void FixedUpdate()
     {
-        switch (currentstate)
+        switch (currentState)
         {
             case PlayerState.Idle:
-                //Whatever Idle does
+                // Whatever Idle does, does nothin-
                 break;
 
             case PlayerState.PreparingPunch:
-                //whatever preparing punch does
+                // does nothin-
                 break;
 
             case PlayerState.Punching:
-                //Whatever Punching does
+                // Implement the logic of hitting and taking life from the Rival
                 break;
 
             case PlayerState.Blocking:
-                //Whatever Blocking does
+                // Implement the logic of blocking the damage from the Rival
                 break;
         }
+    }
+
+    private void SetState(PlayerState newState)
+    {
+        // Stop any coroutine to return to idle and avoid errors or overkaping coroutunes
+        if (returnToIdleCoroutine != null)
+        {
+            StopCoroutine(returnToIdleCoroutine);
+        }
+
+        currentState = newState;
+
+        // If transitioning to PreparingPunch or Punching, start coroutine to return to Idle
+        if (newState == PlayerState.PreparingPunch || newState == PlayerState.Punching)
+        {
+            returnToIdleCoroutine = StartCoroutine(ReturnToIdleAfterDelay(returnToIdleTimer)); // Adjust the delay as needed
+        }
+    }
+
+    private IEnumerator ReturnToIdleAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SetState(PlayerState.Idle);
+        Debug.Log("Returning to Idle");
     }
 }
 
