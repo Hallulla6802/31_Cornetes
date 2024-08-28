@@ -11,10 +11,10 @@ public class ControllPlayerState : MonoBehaviour
 
     public GameObject golpePlayer;
 
+    [SerializeField] private int antiSpamKey = 0;
     public enum PlayerState
     {
         Idle,
-        PreparingPunch,
         Punching,
         Blocking
     }
@@ -26,14 +26,12 @@ public class ControllPlayerState : MonoBehaviour
     private void Start()
     {
         currentState = PlayerState.Idle;
-
-        
     }
 
     private void Update()
     {
         //Blocking 
-        if (Input.GetKey(KeyCode.L) && !(currentState == PlayerState.Punching) && !(currentState == PlayerState.PreparingPunch))
+        if (Input.GetKey(KeyCode.L) && !(currentState == PlayerState.Punching))
         {
             currentState = PlayerState.Blocking;
             Debug.Log("Blocking");
@@ -44,20 +42,19 @@ public class ControllPlayerState : MonoBehaviour
             Debug.Log("Returning to Idle from Blocking");
         }
 
-        //PreparingPunch and Punching state transitions
-        if (currentState == PlayerState.Idle && Input.GetKeyDown(KeyCode.H))
-        {
-            SetState(PlayerState.PreparingPunch);
-            Debug.Log("Preparing Punch");
-        }
-        else if (currentState == PlayerState.PreparingPunch && Input.GetKeyDown(KeyCode.H))
+        if (currentState == PlayerState.Idle && Input.GetKeyDown(KeyCode.H) && antiSpamKey == 0)
         {
             SetState(PlayerState.Punching);
-            Debug.Log("Punching");
+            Debug.Log("Preparing Punch");
         }
 
         // Update the debug text
         debugText.SetText(currentState.ToString());
+
+        if(antiSpamKey > 1)
+        {
+            antiSpamKey = 1;
+        }
     }
 
     private void FixedUpdate()
@@ -67,11 +64,6 @@ public class ControllPlayerState : MonoBehaviour
             case PlayerState.Idle:
                 golpePlayer.SetActive(false);
                 // Whatever Idle does, does nothin-
-                break;
-
-            case PlayerState.PreparingPunch:
-                golpePlayer.SetActive(false);
-                // does nothin-
                 break;
 
             case PlayerState.Punching:
@@ -96,9 +88,10 @@ public class ControllPlayerState : MonoBehaviour
 
         currentState = newState;
 
-        // If transitioning to PreparingPunch or Punching, start coroutine to return to Idle
-        if (newState == PlayerState.PreparingPunch || newState == PlayerState.Punching)
+        // Start coroutine to return to Idle
+        if (newState == PlayerState.Punching)
         {
+            antiSpamKey++;
             returnToIdleCoroutine = StartCoroutine(ReturnToIdleAfterDelay(returnToIdleTimer)); // Adjust the delay as needed
         }
     }
@@ -107,6 +100,7 @@ public class ControllPlayerState : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         SetState(PlayerState.Idle);
+        antiSpamKey = 0;
         Debug.Log("Returning to Idle");
     }
 }
