@@ -9,7 +9,7 @@ public class ControllPlayerState : MonoBehaviour
     public TextMeshProUGUI debugText;
     public float returnToIdleTimer;
 
-    
+    public GameObject golpePlayer;
 
     public enum PlayerState
     {
@@ -65,18 +65,22 @@ public class ControllPlayerState : MonoBehaviour
         switch (currentState)
         {
             case PlayerState.Idle:
+                golpePlayer.SetActive(false);
                 // Whatever Idle does, does nothin-
                 break;
 
             case PlayerState.PreparingPunch:
+                golpePlayer.SetActive(false);
                 // does nothin-
                 break;
 
             case PlayerState.Punching:
+                golpePlayer.SetActive(true);
                 // Implement the logic of hitting and taking life from the Rival
                 break;
 
             case PlayerState.Blocking:
+                golpePlayer.SetActive(false);
                 // Implement the logic of blocking the damage from the Rival
                 break;
         }
