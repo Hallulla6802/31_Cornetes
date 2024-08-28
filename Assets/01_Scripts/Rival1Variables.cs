@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rival1Variables : MonoBehaviour
+public static class Rival1Variables
 {
     [Header("Rival Variables")]
     [Space]
 
-    public float rivalLife;
-    public float rivalSpeed;
-    public float rivalStrenght;
+    public static float rivalLife;
+    public static float rivalSpeed;
+    public static float rivalStrenght;
 
 }

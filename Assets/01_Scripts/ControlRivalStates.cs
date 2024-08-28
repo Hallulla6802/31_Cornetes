@@ -57,7 +57,8 @@ public class ControlRivalStates : MonoBehaviour
             // Random state
             currentRivalState = (RivalState)Random.Range(0, System.Enum.GetValues(typeof(RivalState)).Length);
             
-           // Debug.Log("Rival State: " + currentRivalState);
+            Debug.Log("Rival State: " + currentRivalState);
+            debugRivalText.text = currentRivalState.ToString();
 
         }
     }

@@ -9,6 +9,8 @@ public class ControllPlayerState : MonoBehaviour
     public TextMeshProUGUI debugText;
     public float returnToIdleTimer;
 
+    
+
     public enum PlayerState
     {
         Idle,
@@ -24,11 +26,13 @@ public class ControllPlayerState : MonoBehaviour
     private void Start()
     {
         currentState = PlayerState.Idle;
+
+        
     }
 
     private void Update()
     {
-        // Handle Blocking state based on key press and release
+        //Blocking 
         if (Input.GetKey(KeyCode.L) && !(currentState == PlayerState.Punching) && !(currentState == PlayerState.PreparingPunch))
         {
             currentState = PlayerState.Blocking;
@@ -40,7 +44,7 @@ public class ControllPlayerState : MonoBehaviour
             Debug.Log("Returning to Idle from Blocking");
         }
 
-        // Handle PreparingPunch and Punching state transitions
+        //PreparingPunch and Punching state transitions
         if (currentState == PlayerState.Idle && Input.GetKeyDown(KeyCode.H))
         {
             SetState(PlayerState.PreparingPunch);

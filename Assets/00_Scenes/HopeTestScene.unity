@@ -501,6 +501,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1231907881}
   m_CullTransparentMesh: 1
+--- !u!1 &1300745630
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1300745632}
+  - component: {fileID: 1300745631}
+  m_Layer: 0
+  m_Name: Interaction Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1300745631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300745630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 068b80a64d38155438229254befe3454, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rivalHealth: 100
+  playerStateController: {fileID: 1724381227}
+  rivalStateController: {fileID: 1690887654}
+--- !u!4 &1300745632
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300745630}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1049.6023, y: 505.53198, z: -5.990224}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1450111101
 GameObject:
   m_ObjectHideFlags: 0
@@ -714,7 +761,6 @@ GameObject:
   - component: {fileID: 1690887653}
   - component: {fileID: 1690887652}
   - component: {fileID: 1690887654}
-  - component: {fileID: 1690887655}
   m_Layer: 0
   m_Name: Rival
   m_TagString: Untagged
@@ -803,21 +849,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugRivalText: {fileID: 1683376506}
   currentRivalState: 0
---- !u!114 &1690887655
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1690887651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30cb9b0cced3a4946a695d45e572064a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rivalLife: 0
-  rivalSpeed: 0
-  rivalStrenght: 0
 --- !u!1 &1724381224
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,7 +860,6 @@ GameObject:
   - component: {fileID: 1724381226}
   - component: {fileID: 1724381225}
   - component: {fileID: 1724381227}
-  - component: {fileID: 1724381228}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -919,21 +949,6 @@ MonoBehaviour:
   debugText: {fileID: 1961138592}
   returnToIdleTimer: 1
   currentState: 0
---- !u!114 &1724381228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1724381224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 852eeb4cb0ad7bd43abdaddae5f9a313, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerLife: 0
-  playerSpeed: 0
-  playerStrenght: 0
 --- !u!1 &1961138590
 GameObject:
   m_ObjectHideFlags: 0
@@ -1077,3 +1092,4 @@ SceneRoots:
   - {fileID: 1690887653}
   - {fileID: 394533590}
   - {fileID: 1450111104}
+  - {fileID: 1300745632}

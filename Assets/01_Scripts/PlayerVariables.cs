@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerVariables : MonoBehaviour
+public static class PlayerVariables
 {
     [Header("Player Variables")]
     [Space]
 
-    public float playerLife;
-    public float playerSpeed;
-    public float playerStrenght;
-
+    public static int playerLife;
+    public static int playerSpeed;
+    public static int playerStrenght;
 
 }
