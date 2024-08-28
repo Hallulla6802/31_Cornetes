@@ -9,6 +9,7 @@ public class ControlRivalStates : MonoBehaviour
     [Space]
 
     public TextMeshProUGUI debugRivalText;
+    public GameObject golpeRival;
 
     public enum RivalState
     {
@@ -34,15 +35,19 @@ public class ControlRivalStates : MonoBehaviour
         switch (currentRivalState)
         {
             case RivalState.Idle:
+                golpeRival.SetActive(false);
                 break;
 
             case RivalState.PreparingPunch:
+                golpeRival.SetActive(false);
                 break;
             
             case RivalState.Punching:
+                golpeRival.SetActive(true);
                 break;
             
             case RivalState.Blocking:
+                golpeRival.SetActive(false);
                 break;
         }
     }

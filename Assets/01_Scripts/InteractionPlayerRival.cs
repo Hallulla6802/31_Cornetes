@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class InteractionPlayerRival : MonoBehaviour
 {
-    public int rivalHealth = 100;
+    public int rivalHealth = 600;
+    public int playerHealth = 500;
+
+    public GameObject player;
+    public GameObject rival;
 
     
     public ControllPlayerState playerStateController;
@@ -33,7 +37,16 @@ public class InteractionPlayerRival : MonoBehaviour
         if (rivalHealth <= 0)
         {
             Debug.Log("Rival is defeated!");
-        }   
+            rivalHealth = 0;
+            Destroy(rival);
+        }
+
+        if (playerHealth <= 0)
+        {
+            Debug.Log("Player is defeated!");
+            playerHealth = 0;
+            Destroy(player);
+        }
     }
 
 }
