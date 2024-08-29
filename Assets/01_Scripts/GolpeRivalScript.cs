@@ -4,22 +4,10 @@ using UnityEngine;
 
 public class GolpeRivalScript : MonoBehaviour
 {
-
-    private InteractionPlayerRival interactionPlayerRival;
-    public int dano = 25;
-    public int danoReducido = 10;
-
-    private void Awake()
-    {
-        // Busca el objeto que tiene el script InteractionPlayerRival
-        interactionPlayerRival = FindObjectOfType<InteractionPlayerRival>();
-
-        // Verifica si se encontr� el script
-        if (interactionPlayerRival == null)
-        {
-            Debug.LogError("No se encontr� ning�n objeto con el script 'InteractionPlayerRival'. Aseg�rate de que el script est� en un objeto en la escena.");
-        }
-    }
+    public float damage = 25;  //daño
+    public float damageBlocked = 10; //dañoBloqueando
+    public PlayerHealthBar playerHealthBar; //Imagen de barra de vida
+    public PlayerVariables playerVariables;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -31,23 +19,24 @@ public class GolpeRivalScript : MonoBehaviour
 
             if (playerStates != null)
             {
-                // Ajusta el da�o seg�n el estado del rival
+                // Ajusta el dano segun el estado del rival
                 switch (playerStates.currentState)
                 {
                     case ControllPlayerState.PlayerState.Blocking:
-                        PlayerVariables.playerCurrentLife -= danoReducido;
-                        Debug.Log("El rival est� bloqueando. Se restaron " + danoReducido + " puntos de vida. Vida actual: " + PlayerVariables.playerCurrentLife);
+                        playerVariables.playerCurrentLife -= damageBlocked;
+                        playerHealthBar.UpdatePlayerHealth(damageBlocked);
+                        Debug.Log("El rival esta bloqueando. Se restaron " + damageBlocked + " puntos de vida. Vida actual: " + playerVariables.playerCurrentLife);
                         break;
-
                     default:
-                        PlayerVariables.playerCurrentLife -= dano;
-                        Debug.Log("Se restaron " + dano + " puntos de vida al rival. Vida actual: ");
+                        playerVariables.playerCurrentLife -= damage;
+                        playerHealthBar.UpdatePlayerHealth(damage);
+                        Debug.Log("Se restaron " + damage + " puntos de vida al rival. Vida actual: " + playerVariables.playerCurrentLife);
                         break;
                 }
             }
             else
             {
-                Debug.LogError("No se encontr� el script 'ControlRivalStates' en el objeto Rival.");
+                Debug.LogError("No se encontro el script 'ControlRivalStates' en el objeto Rival.");
             }
         }
     }

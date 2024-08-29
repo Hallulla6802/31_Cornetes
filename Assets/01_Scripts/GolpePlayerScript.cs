@@ -6,8 +6,9 @@ public class GolpePlayerScript : MonoBehaviour
 {
 
     private InteractionPlayerRival interactionPlayerRival;
-    public int dano = 20;
-    public int danoReducido = 5;
+    public int damage = 20;
+    public int damageBlocked = 5;
+    public Rival1Variables rival1Variables;
 
     private void Awake()
     {
@@ -35,13 +36,13 @@ public class GolpePlayerScript : MonoBehaviour
                 switch (rivalStates.currentRivalState)
                 {
                     case ControlRivalStates.RivalState.Blocking:
-                        Rival1Variables.rival1CurrentLife -= danoReducido;
-                        Debug.Log("El rival est� bloqueando. Se restaron " + danoReducido + " puntos de vida. Vida actual: " + Rival1Variables.rival1CurrentLife);
+                        rival1Variables.rival1CurrentLife -= damageBlocked;
+                        Debug.Log("El rival est� bloqueando. Se restaron " + damageBlocked + " puntos de vida. Vida actual: " + rival1Variables.rival1CurrentLife);
                         break;
 
                     default:
-                        Rival1Variables.rival1CurrentLife -= dano;
-                        Debug.Log("Se restaron " + dano + " puntos de vida al rival. Vida actual: " + Rival1Variables.rival1CurrentLife);
+                        rival1Variables.rival1CurrentLife -= damage;
+                        Debug.Log("Se restaron " + damage + " puntos de vida al rival. Vida actual: " + rival1Variables.rival1CurrentLife);
                         break;
                 }
             }

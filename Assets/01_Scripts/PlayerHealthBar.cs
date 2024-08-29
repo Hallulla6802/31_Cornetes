@@ -6,15 +6,16 @@ using UnityEngine;
 public class PlayerHealthBar : MonoBehaviour
 {
    [SerializeField] private UnityEngine.UI.Image _healthBarFill;
+   public PlayerVariables playerVariables;
    public void UpdatePlayerHealth(float damage)
    {
-        PlayerVariables.playerCurrentLife += damage;
+        playerVariables.playerCurrentLife += damage;
         UpdatePlayerHealthBar();
    }
    private void UpdatePlayerHealthBar()
    {
-        float targetFillAmount = PlayerVariables.playerCurrentLife / 
-        PlayerVariables.playerMaxLife;
+        float targetFillAmount = playerVariables.playerCurrentLife / 
+        playerVariables.playerMaxLife;
         _healthBarFill.fillAmount = targetFillAmount;
    }
 }
