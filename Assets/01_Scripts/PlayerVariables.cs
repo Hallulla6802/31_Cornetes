@@ -7,8 +7,9 @@ public static class PlayerVariables
     [Header("Player Variables")]
     [Space]
 
-    public static int playerLife;
-    public static int playerSpeed;
-    public static int playerStrenght;
+    public static float playerCurrentLife;
+    public static float playerMaxLife = 500;
+    public static float playerSpeed;
+    public static float playerDamage;
 
 }

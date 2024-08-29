@@ -4,47 +4,34 @@ using UnityEngine;
 
 public class InteractionPlayerRival : MonoBehaviour
 {
-    public int rivalHealth = 600;
-    public int playerHealth = 500;
-
     public GameObject player;
     public GameObject rival;
-
     
     public ControllPlayerState playerStateController;
     public ControlRivalStates rivalStateController;
-
-    private void Update()
+    void Awake()
     {
-        // Check if the player is punching
-        if (playerStateController.currentState == ControllPlayerState.PlayerState.Punching)
-        {
-            // Check if the rival is idle or preparing to punch
-            if (rivalStateController.currentRivalState == ControlRivalStates.RivalState.Idle ||
-                rivalStateController.currentRivalState == ControlRivalStates.RivalState.PreparingPunch)
-            {
-                TakeDamage(PlayerVariables.playerStrenght);
-            }
-        }
+        PlayerVariables.playerCurrentLife = PlayerVariables.playerMaxLife;
+        Rival1Variables.rival1CurrentLife = PlayerVariables.playerMaxLife;
     }
 
-    private void TakeDamage(int damage)
+    private void TakeDamage(float damage)
     {
-        rivalHealth -= damage;
-        Debug.Log("Rival Health: " + rivalHealth);
+        Rival1Variables.rival1CurrentLife -= damage;
+        Debug.Log("Rival Health: " + Rival1Variables.rival1CurrentLife);
 
 
-        if (rivalHealth <= 0)
+        if (Rival1Variables.rival1CurrentLife <= 0)
         {
             Debug.Log("Rival is defeated!");
-            rivalHealth = 0;
+            Rival1Variables.rival1CurrentLife = 0;
             Destroy(rival);
         }
 
-        if (playerHealth <= 0)
+        if (PlayerVariables.playerCurrentLife <= 0)
         {
             Debug.Log("Player is defeated!");
-            playerHealth = 0;
+            PlayerVariables.playerCurrentLife = 0;
             Destroy(player);
         }
     }

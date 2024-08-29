@@ -11,15 +11,9 @@ public class BotonPerkScript : MonoBehaviour, IPointerEnterHandler, IPointerExit
     public TextMeshProUGUI textoParentisis;
 
     public string textoCambiadoTitulo = "";   
-    public string defaultTextoTitulo = "";
-
     public string textoCambiadoDescripcion = "";
     public string defaultTextoDescripcion = "";
-
     public string textoCambiadoParentisis = "";
-    public string defaultTextoParentisis = "";
-
-
     public void OnPointerEnter(PointerEventData eventData)
     {
         textoTitulo.text = textoCambiadoTitulo;
@@ -29,9 +23,9 @@ public class BotonPerkScript : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        textoTitulo.text = defaultTextoTitulo;
+        textoTitulo.text = null;
         textoDescripcion.text = defaultTextoDescripcion;
-        textoParentisis.text = defaultTextoParentisis;
+        textoParentisis.text = null;
 
     }
 }
