@@ -24,12 +24,12 @@ public class GolpeRivalScript : MonoBehaviour
                 {
                     case ControllPlayerState.PlayerState.Blocking:
                         playerVariables.playerCurrentLife -= damageBlocked;
-                        playerHealthBar.UpdatePlayerHealth(damageBlocked);
+                        //playerHealthBar.UpdatePlayerHealth(damageBlocked);
                         Debug.Log("El rival esta bloqueando. Se restaron " + damageBlocked + " puntos de vida. Vida actual: " + playerVariables.playerCurrentLife);
                         break;
                     default:
                         playerVariables.playerCurrentLife -= damage;
-                        playerHealthBar.UpdatePlayerHealth(damage);
+                        //playerHealthBar.UpdatePlayerHealth(damage);
                         Debug.Log("Se restaron " + damage + " puntos de vida al rival. Vida actual: " + playerVariables.playerCurrentLife);
                         break;
                 }

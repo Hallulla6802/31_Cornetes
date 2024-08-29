@@ -10,4 +10,12 @@ public class PlayerVariables: MonoBehaviour
     public float playerMaxLife = 500;
     public float playerSpeed;
     public float playerDamage;
+
+    void Update()
+    {
+        if (playerCurrentLife < 0)
+        {
+            playerCurrentLife = 0;
+        }
+    }
 }
