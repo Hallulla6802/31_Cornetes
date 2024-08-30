@@ -27,7 +27,7 @@ public class CanvasPerkScript : MonoBehaviour
 
     private void Update()
     {
-        if (DataManager.perk4elegido)
+        if (DataManager.perk4Elegido)
         {
            carta4.SetActive(false);
         }
@@ -82,7 +82,7 @@ public class CanvasPerkScript : MonoBehaviour
     public void ConfirmarPerk4()
     {
         DataManager.perkElegido = 4;
-        DataManager.perk4elegido = true;
+        DataManager.perk4Elegido = true;
         cartaNoSelecionable.SetActive(true);
         CerrarCanvas();
 
@@ -91,7 +91,7 @@ public class CanvasPerkScript : MonoBehaviour
     public void CerrarCanvas()
     {
         canvasPerk.SetActive(false);
-        Debug.Log(DataManager.perkElegido);
-
+        Debug.Log("Perk elegido:" + DataManager.perkElegido);
+        
     }
 }

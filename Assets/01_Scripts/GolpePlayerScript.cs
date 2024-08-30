@@ -30,7 +30,7 @@ public class GolpePlayerScript : MonoBehaviour
 
                     default:
                         rival1Variables.rival1CurrentLife -= damage;
-                        ratingScript.GiveRating(20);
+                        ratingScript.GiveRating(10);
                         Debug.Log("Se restaron " + damage + " puntos de vida al rival. Vida actual: " + rival1Variables.rival1CurrentLife);
                         break;
                 }

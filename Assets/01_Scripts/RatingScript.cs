@@ -18,16 +18,16 @@ public class RatingScript : MonoBehaviour
     {
         currentRating += ratingAmount;
         ratingText.text = "Rating: " + currentRating + " / " + ratingNeeded;
+        if(currentRating > ratingNeeded)
+        {
+            currentRating = Mathf.Clamp(currentRating, 0, ratingNeeded);
+        }
     }
     public void CheckRatingEndFight()
     {
         if(ratingNeeded == currentRating)
         {
             hasRating = true;
-        }
-        /* else
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        } */
+        }        
     }
 }

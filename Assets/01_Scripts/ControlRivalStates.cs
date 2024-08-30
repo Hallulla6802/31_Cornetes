@@ -55,7 +55,7 @@ public class ControlRivalStates : MonoBehaviour
         }
     }
 
-    private IEnumerator ChangeStateRandomly()
+    public IEnumerator ChangeStateRandomly()
     {
         while (true)
         {

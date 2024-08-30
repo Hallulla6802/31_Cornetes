@@ -31,9 +31,17 @@ public class ActivarPerkScript : MonoBehaviour
             switch (DataManager.perkElegido)
             {
                 case 1:
-                    playerVariables.playerCurrentLife += seLeAgregaSalud;
-                    DataManager.perkElegido = 0;
+                    if(playerVariables.playerCurrentLife <= 0)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        playerVariables.playerCurrentLife += seLeAgregaSalud;
+                        DataManager.perkElegido = 0;
+                    }
                     break;
+                    
 
                 case 2:
                     golpeplayer.damage += seLeAgregaDamage;
@@ -52,7 +60,7 @@ public class ActivarPerkScript : MonoBehaviour
 
         if (Input.GetKey(KeyCode.X) && (playerVariables.playerCurrentLife == 0) && DataManager.perkElegido == 4)
         {
-            playerVariables.playerCurrentLife = playerVariables.playerMaxLife;
+            playerVariables.playerCurrentLife = 80f;
             player.SetActive(true);
             DataManager.perkElegido = 0;
         }
