@@ -11,6 +11,9 @@ public class ControlRivalStates : MonoBehaviour
     public TextMeshProUGUI debugRivalText;
     public GameObject golpeRival;
 
+    public float tiempoMinimo;
+    public float tiempoMaximo;
+
     public enum RivalState
     {
         Idle,
@@ -57,7 +60,7 @@ public class ControlRivalStates : MonoBehaviour
         while (true)
         {
             
-            yield return new WaitForSeconds(Random.Range(0.5f, 1f));
+            yield return new WaitForSeconds(Random.Range(tiempoMinimo, tiempoMaximo));  // original 0.5f, 1f
 
             // Random state
             currentRivalState = (RivalState)Random.Range(0, System.Enum.GetValues(typeof(RivalState)).Length);

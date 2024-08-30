@@ -8,12 +8,15 @@ public class ActivarPerkScript : MonoBehaviour
     public GameObject canvasPerk;
     public PlayerVariables playerVariables;
     public GolpePlayerScript golpeplayer;
+    public ControlRivalStates controlRivalStates;
     public GameObject player;
     public TMP_Text perkNameText;
 
     public int seLeAgregaSalud;
     public int seLeAgregaDamage;
     public int seLeAgregaDamageoDelBlockeo;
+    public float seLeAgregaTiempoMaximo;
+    public float seLeAgregaTiempoMinimo;
     void Update()
     {
         if (DataManager.perkElegido == 0)
@@ -36,7 +39,13 @@ public class ActivarPerkScript : MonoBehaviour
                     golpeplayer.damage += seLeAgregaDamage;
                     golpeplayer.damageBlocked += seLeAgregaDamageoDelBlockeo;
                     DataManager.perkElegido = 0;
-                    break;                
+                    break;
+
+                case 3:
+                    controlRivalStates.tiempoMinimo += seLeAgregaTiempoMinimo;
+                    controlRivalStates.tiempoMaximo += seLeAgregaTiempoMaximo;
+                    DataManager.perkElegido = 0;
+                    break;
             }
 
         }

@@ -360,11 +360,14 @@ MonoBehaviour:
   canvasPerk: {fileID: 1261981860}
   playerVariables: {fileID: 1723245471}
   golpeplayer: {fileID: 1146575527}
+  controlRivalStates: {fileID: 1690887656}
   player: {fileID: 1724381224}
   perkNameText: {fileID: 2043362374}
   seLeAgregaSalud: 50
-  seLeAgregaDamage: 0
-  seLeAgregaDamageoDelBlockeo: 0
+  seLeAgregaDamage: 10
+  seLeAgregaDamageoDelBlockeo: 5
+  seLeAgregaTiempoMaximo: 1.5
+  seLeAgregaTiempoMinimo: 3
 --- !u!4 &145810717
 Transform:
   m_ObjectHideFlags: 0
@@ -2204,6 +2207,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugRivalText: {fileID: 1683376506}
   golpeRival: {fileID: 285972640}
+  tiempoMinimo: 0.5
+  tiempoMaximo: 1
   currentRivalState: 0
 --- !u!1 &1723245469
 GameObject:
