@@ -2,26 +2,25 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 
-public class ControllPlayerState : MonoBehaviour
+public class ControlPlayerState : MonoBehaviour
 {
     [Header("Debug Text")]
     [Space]
     public TextMeshProUGUI debugText;
-    public float returnToIdleTimer;
-
+    public RatingScript ratingScript;
     public GameObject golpePlayer;
-
     [SerializeField] private int antiSpamKey = 0;
     public enum PlayerState
     {
         Idle,
         Punching,
-        Blocking
+        Blocking,
+        Taunting
     }
 
     public PlayerState currentState = PlayerState.Idle;
 
-    private Coroutine returnToIdleCoroutine;
+    public Coroutine returnToIdleCoroutine;
 
     private void Start()
     {
@@ -41,12 +40,20 @@ public class ControllPlayerState : MonoBehaviour
             SetState(PlayerState.Idle);
             Debug.Log("Returning to Idle from Blocking");
         }
-
         if (currentState == PlayerState.Idle && Input.GetKeyDown(KeyCode.H) && antiSpamKey == 0)
         {
             SetState(PlayerState.Punching);
-            Debug.Log("Preparing Punch");
+            Debug.Log("Punching");
         }
+        if(currentState == PlayerState.Idle && Input.GetKeyDown(KeyCode.J)&& antiSpamKey == 0)
+        {
+            ratingScript.GiveRating(20);
+            SetState(PlayerState.Taunting);
+            Debug.Log("Tauting");
+        }
+
+
+
 
         // Update the debug text
         debugText.SetText(currentState.ToString());
@@ -75,6 +82,11 @@ public class ControllPlayerState : MonoBehaviour
                 golpePlayer.SetActive(false);
                 // Implement the logic of blocking the damage from the Rival
                 break;
+
+            case PlayerState.Taunting:
+                golpePlayer.SetActive(false);
+                //Implement Sprite Taunt Logic
+                break;
         }
     }
 
@@ -92,7 +104,21 @@ public class ControllPlayerState : MonoBehaviour
         if (newState == PlayerState.Punching)
         {
             antiSpamKey++;
-            returnToIdleCoroutine = StartCoroutine(ReturnToIdleAfterDelay(returnToIdleTimer)); // Adjust the delay as needed
+            returnToIdleCoroutine = StartCoroutine(ReturnToIdleAfterDelay(1)); // Adjust the delay as needed
+        }
+        else if(newState == PlayerState.Taunting)
+        {
+            antiSpamKey++;
+            returnToIdleCoroutine = StartCoroutine(ReturnToIdleAfterDelay(5)); // Adjust the delay as needed
+        }
+    }
+    public void InterrumptTaunt()
+    {
+        if(currentState == PlayerState.Taunting)
+        {
+            antiSpamKey++;
+            returnToIdleCoroutine = StartCoroutine(ReturnToIdleAfterDelay(.5f)); // Adjust the delay as needed
+            //Interrrumpt Sprite Taunt
         }
     }
 

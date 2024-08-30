@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BarraDeVidaScript2 : MonoBehaviour
+public class BarraDeVidaRivalScript : MonoBehaviour
 {
     public Image barraDeVida;
 

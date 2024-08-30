@@ -6,7 +6,6 @@ public class GolpeRivalScript : MonoBehaviour
 {
     public float damage = 25;  //daño
     public float damageBlocked = 10; //dañoBloqueando
-    public PlayerHealthBar playerHealthBar; //Imagen de barra de vida
     public PlayerVariables playerVariables;
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -15,21 +14,23 @@ public class GolpeRivalScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             // Verifica el estado actual del rival
-            ControllPlayerState playerStates = collision.gameObject.GetComponent<ControllPlayerState>();
+            ControlPlayerState playerStates = collision.gameObject.GetComponent<ControlPlayerState>();
 
             if (playerStates != null)
             {
                 // Ajusta el dano segun el estado del rival
                 switch (playerStates.currentState)
                 {
-                    case ControllPlayerState.PlayerState.Blocking:
+                    case ControlPlayerState.PlayerState.Blocking:
                         playerVariables.playerCurrentLife -= damageBlocked;
-                        //playerHealthBar.UpdatePlayerHealth(damageBlocked);
                         Debug.Log("El rival esta bloqueando. Se restaron " + damageBlocked + " puntos de vida. Vida actual: " + playerVariables.playerCurrentLife);
                         break;
                     default:
                         playerVariables.playerCurrentLife -= damage;
-                        //playerHealthBar.UpdatePlayerHealth(damage);
+                        if(playerStates.currentState == ControlPlayerState.PlayerState.Taunting)
+                        {
+                            playerStates.InterrumptTaunt();
+                        }
                         Debug.Log("Se restaron " + damage + " puntos de vida al rival. Vida actual: " + playerVariables.playerCurrentLife);
                         break;
                 }

@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ActivarPerkScript : MonoBehaviour
 {
     public GameObject canvasPerk;
-
     public PlayerVariables playerVariables;
     public GolpePlayerScript golpeplayer;
     public GameObject player;
+    public TMP_Text perkNameText;
 
     public int seLeAgregaSalud;
-    public int seLeAgregaDaño;
-    public int seLeAgregaDañoDelBlockeo;
+    public int seLeAgregaDamage;
+    public int seLeAgregaDamageoDelBlockeo;
     void Update()
     {
         if (DataManager.perkElegido == 0)
@@ -21,12 +22,6 @@ public class ActivarPerkScript : MonoBehaviour
         }  else {
            canvasPerk.SetActive(true);
         }
-
-        
-
-
-
-
 
         if (Input.GetKey(KeyCode.X))
         {
@@ -38,17 +33,10 @@ public class ActivarPerkScript : MonoBehaviour
                     break;
 
                 case 2:
-                    golpeplayer.damage += seLeAgregaDaño;
-                    golpeplayer.damageBlocked += seLeAgregaDañoDelBlockeo;
+                    golpeplayer.damage += seLeAgregaDamage;
+                    golpeplayer.damageBlocked += seLeAgregaDamageoDelBlockeo;
                     DataManager.perkElegido = 0;
-                    break;
-
-              
-
-                        
-
-                    
-
+                    break;                
             }
 
         }
@@ -59,7 +47,11 @@ public class ActivarPerkScript : MonoBehaviour
             player.SetActive(true);
             DataManager.perkElegido = 0;
         }
+        
 
-
+    }
+    public void UpdatePerkName(string perkName)
+    {   
+        perkNameText.text = perkName;      
     }
 }

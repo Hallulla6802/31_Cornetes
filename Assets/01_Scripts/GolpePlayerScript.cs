@@ -4,23 +4,11 @@ using UnityEngine;
 
 public class GolpePlayerScript : MonoBehaviour
 {
-
-    private InteractionPlayerRival interactionPlayerRival;
+    public RatingScript ratingScript;
     public int damage = 20;
     public int damageBlocked = 5;
     public Rival1Variables rival1Variables;
 
-    private void Awake()
-    {
-        // Busca el objeto que tiene el script InteractionPlayerRival
-        interactionPlayerRival = FindObjectOfType<InteractionPlayerRival>();
-
-        // Verifica si se encontr� el script
-        if (interactionPlayerRival == null)
-        {
-            Debug.LogError("No se encontr� ning�n objeto con el script 'InteractionPlayerRival'. Aseg�rate de que el script est� en un objeto en la escena.");
-        }
-    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -42,6 +30,7 @@ public class GolpePlayerScript : MonoBehaviour
 
                     default:
                         rival1Variables.rival1CurrentLife -= damage;
+                        ratingScript.GiveRating(20);
                         Debug.Log("Se restaron " + damage + " puntos de vida al rival. Vida actual: " + rival1Variables.rival1CurrentLife);
                         break;
                 }

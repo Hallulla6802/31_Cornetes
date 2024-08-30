@@ -23,7 +23,7 @@ public class ControlRivalStates : MonoBehaviour
 
     private Coroutine stateChangeCoroutine;
 
-    private void Start()
+    public void StartStateCourutine()
     {
         stateChangeCoroutine = StartCoroutine(ChangeStateRandomly());
     }
