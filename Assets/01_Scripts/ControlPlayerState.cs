@@ -30,7 +30,7 @@ public class ControlPlayerState : MonoBehaviour
     private void Update()
     {
         //Blocking 
-        if (Input.GetKey(KeyCode.L) && !(currentState == PlayerState.Punching))
+        if (Input.GetKey(KeyCode.L) && currentState == PlayerState.Idle) 
         {
             currentState = PlayerState.Blocking;
             Debug.Log("Blocking");
@@ -109,7 +109,7 @@ public class ControlPlayerState : MonoBehaviour
         else if(newState == PlayerState.Taunting)
         {
             antiSpamKey++;
-            returnToIdleCoroutine = StartCoroutine(ReturnToIdleAfterDelay(5)); // Adjust the delay as needed
+            returnToIdleCoroutine = StartCoroutine(ReturnToIdleAfterDelay(4)); // Adjust the delay as needed
         }
     }
     public void InterrumptTaunt()
