@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 529628540068035044}
   - component: {fileID: 6582748469309591037}
   m_Layer: 5
-  m_Name: BotonPerk4
+  m_Name: BotonPerk4Revivir
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -357,7 +357,7 @@ MonoBehaviour:
   textoDescripcion: {fileID: 6574276039276670951}
   textoParentisis: {fileID: 206750614042885633}
   textoCambiadoTitulo: InserteNombrePerk4
-  textoCambiadoDescripcion: Cuando caes puedes levantarte una vez.
+  textoCambiadoDescripcion: "Esta carta tiene un poder extra\xF1o."
   defaultTextoDescripcion: "Arrastra el mouse hacia alguna carta para leer su descripci\xF3n"
   textoCambiadoParentisis: (Esta carta solo puede ser usada una vez en todo el juego)
 --- !u!1 &1473729497911533396
@@ -628,6 +628,59 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &1865885183571756239
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3913148954084036291}
+  - component: {fileID: 5872391612431514364}
+  m_Layer: 5
+  m_Name: Randomizer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3913148954084036291
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865885183571756239}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7085265041680083513}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5872391612431514364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865885183571756239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3915426188a50fa4cbf3cdf55caff90c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  perkButtons:
+  - {fileID: 3439238743896752433}
+  - {fileID: 3796407672596572113}
+  - {fileID: 4595226659151833307}
+  - {fileID: 529628540068035044}
 --- !u!1 &1922953432011678424
 GameObject:
   m_ObjectHideFlags: 0
@@ -2199,6 +2252,7 @@ RectTransform:
   - {fileID: 3156117467000872626}
   - {fileID: 5237673309876350724}
   - {fileID: 6888942454738226797}
+  - {fileID: 3913148954084036291}
   m_Father: {fileID: 1493166212854756690}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2302,7 +2356,7 @@ GameObject:
   - component: {fileID: 4595226659151833307}
   - component: {fileID: 9105116692279668698}
   m_Layer: 5
-  m_Name: BotonPerk3
+  m_Name: BotonPerk3Velocidad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2437,8 +2491,7 @@ MonoBehaviour:
   textoDescripcion: {fileID: 6574276039276670951}
   textoParentisis: {fileID: 206750614042885633}
   textoCambiadoTitulo: InserteNombrePerk3
-  textoCambiadoDescripcion: "Al activar esta carta, la velocidad del enemigo sera
-    m\xE1s lenta."
+  textoCambiadoDescripcion: Al parecer el tiempo vuela.
   defaultTextoDescripcion: "Arrastra el mouse hacia alguna carta para leer su descripci\xF3n"
   textoCambiadoParentisis: 
 --- !u!1 &4602813182809145730
@@ -2994,7 +3047,7 @@ GameObject:
   - component: {fileID: 3439238743896752433}
   - component: {fileID: 861324669051237781}
   m_Layer: 5
-  m_Name: BotonPerk1
+  m_Name: BotonPerk1Curar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3129,7 +3182,7 @@ MonoBehaviour:
   textoDescripcion: {fileID: 6574276039276670951}
   textoParentisis: {fileID: 206750614042885633}
   textoCambiadoTitulo: InserteNombrePerk1
-  textoCambiadoDescripcion: Al activar esta carta podras recuperar un poco de salud.
+  textoCambiadoDescripcion: Un girasol te da de su sol.
   defaultTextoDescripcion: "Arrastra el mouse hacia alguna carta para leer su descripci\xF3n"
   textoCambiadoParentisis: 
 --- !u!1 &5738402227874875199
@@ -4340,7 +4393,7 @@ GameObject:
   - component: {fileID: 3796407672596572113}
   - component: {fileID: 825510950566409392}
   m_Layer: 5
-  m_Name: BotonPerk2
+  m_Name: BotonPerk2Fuerza
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4475,8 +4528,7 @@ MonoBehaviour:
   textoDescripcion: {fileID: 6574276039276670951}
   textoParentisis: {fileID: 206750614042885633}
   textoCambiadoTitulo: InserteNombrePerk2
-  textoCambiadoDescripcion: "Al activar esta carta tus golpes ser\xE1n mucho m\xE1s
-    fuertes."
+  textoCambiadoDescripcion: Un volcan exploto y esta carta salio.
   defaultTextoDescripcion: "Arrastra el mouse hacia alguna carta para leer su descripci\xF3n"
   textoCambiadoParentisis: 
 --- !u!1 &8307071600821529317
