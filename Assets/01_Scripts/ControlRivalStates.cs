@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+//using TMPro;
 
 public class ControlRivalStates : MonoBehaviour
 {
-    [Header("Debug Rival Text")]
-    [Space]
+   // [Header("Debug Rival Text")]
+    //[Space]
 
-    public TextMeshProUGUI debugRivalText;
+    //public TextMeshProUGUI debugRivalText;
+
     public GameObject golpeRival;
 
     public float tiempoMinimo;
     public float tiempoMaximo;
+
+    private Animator _anim;
 
     public enum RivalState
     {
@@ -26,6 +29,11 @@ public class ControlRivalStates : MonoBehaviour
 
     private Coroutine stateChangeCoroutine;
 
+    private void Start()
+    {
+        _anim = GetComponent<Animator>();
+    }
+
     public void StartStateCourutine()
     {
         stateChangeCoroutine = StartCoroutine(ChangeStateRandomly());
@@ -34,15 +42,16 @@ public class ControlRivalStates : MonoBehaviour
     private void FixedUpdate()
     {
         
-
         switch (currentRivalState)
         {
             case RivalState.Idle:
                 golpeRival.SetActive(false);
+                //_anim.PlayIdle
                 break;
 
             case RivalState.PreparingPunch:
                 golpeRival.SetActive(false);
+                //_anim.PlayPreparingPunch
                 break;
             
             case RivalState.Punching:
@@ -66,7 +75,7 @@ public class ControlRivalStates : MonoBehaviour
             currentRivalState = (RivalState)Random.Range(0, System.Enum.GetValues(typeof(RivalState)).Length);
             
             Debug.Log("Rival State: " + currentRivalState);
-            debugRivalText.text = currentRivalState.ToString();
+            //debugRivalText.text = currentRivalState.ToString();
 
         }
     }
