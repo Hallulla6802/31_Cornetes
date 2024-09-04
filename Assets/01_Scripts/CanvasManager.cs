@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CanvasManager : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class CanvasManager : MonoBehaviour
 
     void Awake()
     {
+        
+
         foreach (GameObject obj in gameObjectsToActivate)
             {
                 obj.SetActive(false);  // Activa cada uno de los objetos
@@ -31,5 +35,7 @@ public class CanvasManager : MonoBehaviour
             }
         
     }
+
+    
 }
 
