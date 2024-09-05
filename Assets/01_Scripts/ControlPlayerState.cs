@@ -11,6 +11,8 @@ public class ControlPlayerState : MonoBehaviour
     public RatingScript ratingScript;
     public GameObject golpePlayer;
 
+    public int returnToIdle;
+
     [SerializeField] private int antiSpamKey = 0;
     private AudioSourceManager _audioSourceMan;
 
@@ -118,7 +120,7 @@ public class ControlPlayerState : MonoBehaviour
         else if(newState == PlayerState.Taunting)
         {
             antiSpamKey++;
-            returnToIdleCoroutine = StartCoroutine(ReturnToIdleAfterDelay(4)); // Adjust the delay as needed
+            returnToIdleCoroutine = StartCoroutine(ReturnToIdleAfterDelay(returnToIdle)); // Adjust the delay as needed
         }
     }
     public void InterrumptTaunt()

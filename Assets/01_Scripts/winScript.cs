@@ -17,7 +17,7 @@ public GameObject rival;
         if(rival1Variables.rival1CurrentLife == 0)
         {
             rival.SetActive(false);
-            ratingScript.CheckRatingEndFight();                           
+            ratingScript.CheckRatingEndFight();                      
             if(ratingScript.hasRating)
             {
                 deathScreenScript.TriggerWinScreen();

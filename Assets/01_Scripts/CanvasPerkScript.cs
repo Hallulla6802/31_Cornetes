@@ -61,6 +61,8 @@ public class CanvasPerkScript : MonoBehaviour
 
     public void CerrarTodosLosPaneles()
     {
+        
+
         panelPerk1.SetActive(false);
         panelPerk2.SetActive(false);
         panelPerk3.SetActive(false);
@@ -100,6 +102,8 @@ public class CanvasPerkScript : MonoBehaviour
     public void CerrarCanvas()
     {
         canvasPerk.SetActive(false);
+        _audioSourceMan.ringbell.Play();
+        _audioSourceMan.crowdLoop.Play();
         Debug.Log("Perk elegido:" + DataManager.perkElegido);
         
     }
