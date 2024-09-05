@@ -15,14 +15,19 @@ public class CanvasPerkScript : MonoBehaviour
 
     public  GameObject carta4;
 
+    private AudioSourceManager _audioSourceMan;
+
     private void Start()
     {
         DataManager.perkElegido = 0;
+
         panelPerk1.SetActive(false);
         panelPerk2.SetActive(false);
         panelPerk3.SetActive(false);
         panelPerk4.SetActive(false);
         cartaNoSelecionable.SetActive(false);
+
+        _audioSourceMan = FindObjectOfType<AudioSourceManager>();
     }
 
     private void Update()
@@ -33,20 +38,24 @@ public class CanvasPerkScript : MonoBehaviour
         }
     }
 
-    public void AbrirPerk1()
+    public void AbrirPerk1() //Perk Curativo
     {
+        _audioSourceMan.healingPowerUp.Play();
         panelPerk1.SetActive(true);
     }
-    public void AbrirPerk2()
+    public void AbrirPerk2() //Perk Fuerza
     {
+        _audioSourceMan.strenghtPowerUp.Play();
         panelPerk2.SetActive(true);
     }
-    public void AbrirPerk3()
+    public void AbrirPerk3() // Perk Velocidad
     {
+        _audioSourceMan.speedPowerUp.Play();
         panelPerk3.SetActive(true);
     }
-    public void AbrirPerk4()
+    public void AbrirPerk4() // Perk Revivir
     {
+        _audioSourceMan.resurrectPowerUp.Play();
         panelPerk4.SetActive(true);
     }
 

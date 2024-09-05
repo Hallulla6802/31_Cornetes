@@ -16,6 +16,7 @@ public class ControlRivalStates : MonoBehaviour
     public float tiempoMaximo;
 
     private Animator _anim;
+    private AudioSourceManager _audioSourceManager;
 
     public enum RivalState
     {
@@ -32,6 +33,7 @@ public class ControlRivalStates : MonoBehaviour
     private void Start()
     {
         _anim = GetComponent<Animator>();
+        _audioSourceManager = FindObjectOfType<AudioSourceManager>();
     }
 
     public void StartStateCourutine()
@@ -47,19 +49,23 @@ public class ControlRivalStates : MonoBehaviour
             case RivalState.Idle:
                 golpeRival.SetActive(false);
                 //_anim.PlayIdle
+
                 break;
 
             case RivalState.PreparingPunch:
                 golpeRival.SetActive(false);
                 //_anim.PlayPreparingPunch
+                
                 break;
             
             case RivalState.Punching:
                 golpeRival.SetActive(true);
+                _audioSourceManager.golpe.Play();
                 break;
             
             case RivalState.Blocking:
                 golpeRival.SetActive(false);
+                _audioSourceManager.bloqueo.Play();
                 break;
         }
     }

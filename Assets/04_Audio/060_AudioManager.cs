@@ -27,6 +27,7 @@ public class AudioManager : MonoBehaviour
         LoadValues();
     }
 
+
     #region VOLUME SETTINGS
 
     #region General Volume
@@ -45,9 +46,9 @@ public class AudioManager : MonoBehaviour
     }
 
 
-        #endregion
+    #endregion
 
-        #region SFX Volume
+    #region SFX Volume
 
     public void SetSFXVolume(float sliderValue)
     {
@@ -79,14 +80,31 @@ public class AudioManager : MonoBehaviour
         float GeneralValue = PlayerPrefs.GetFloat("GeneralValue");
         generalSlider.value = GeneralValue;
         AudioListener.volume = GeneralValue;
+        if (!PlayerPrefs.HasKey("GeneralValue"))
+        {
+            generalSlider.value = 1;
+            AudioListener.volume = 1f;
+        }
 
         float MusicValue = PlayerPrefs.GetFloat("MusicValue");
         musicVolumeSlider.value = MusicValue;
         AudioListener.volume = MusicValue;
+        if (!PlayerPrefs.HasKey("GeneralValue"))
+        {
+            musicVolumeSlider.value = 1;
+            AudioListener.volume = 1f;
+        }
 
         float sfxValue = PlayerPrefs.GetFloat("SFXValue");
         sfxVolumeSlider.value = sfxValue;
         AudioListener.volume = sfxValue;
+        if (!PlayerPrefs.HasKey("GeneralValue"))
+        {
+            sfxVolumeSlider.value = 1;
+            AudioListener.volume = 1f;
+        }
+        PlayerPrefs.Save();
     }
     #endregion
 }
+

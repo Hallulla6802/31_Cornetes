@@ -1,15 +1,19 @@
 using UnityEngine;
-using TMPro;
+//using TMPro;
 using System.Collections;
 
 public class ControlPlayerState : MonoBehaviour
 {
     [Header("Debug Text")]
     [Space]
-    public TextMeshProUGUI debugText;
+
+    //public TextMeshProUGUI debugText;
     public RatingScript ratingScript;
     public GameObject golpePlayer;
+
     [SerializeField] private int antiSpamKey = 0;
+    private AudioSourceManager _audioSourceMan;
+
     public enum PlayerState
     {
         Idle,
@@ -25,6 +29,8 @@ public class ControlPlayerState : MonoBehaviour
     private void Start()
     {
         currentState = PlayerState.Idle;
+
+        _audioSourceMan = FindObjectOfType<AudioSourceManager>();
     }
 
     private void Update()
@@ -33,6 +39,7 @@ public class ControlPlayerState : MonoBehaviour
         if (Input.GetKey(KeyCode.L) && currentState == PlayerState.Idle) 
         {
             currentState = PlayerState.Blocking;
+            _audioSourceMan.bloqueo.Play();
             Debug.Log("Blocking");
         }
         else if (currentState == PlayerState.Blocking && !Input.GetKey(KeyCode.L))
@@ -43,11 +50,13 @@ public class ControlPlayerState : MonoBehaviour
         if (currentState == PlayerState.Idle && Input.GetKeyDown(KeyCode.H) && antiSpamKey == 0)
         {
             SetState(PlayerState.Punching);
+            _audioSourceMan.golpe.Play();
             Debug.Log("Punching");
         }
         if(currentState == PlayerState.Idle && Input.GetKeyDown(KeyCode.J)&& antiSpamKey == 0)
         {
             ratingScript.GiveRating(20);
+            _audioSourceMan.taunt.Play();
             SetState(PlayerState.Taunting);
             Debug.Log("Tauting");
         }
@@ -56,7 +65,7 @@ public class ControlPlayerState : MonoBehaviour
 
 
         // Update the debug text
-        debugText.SetText(currentState.ToString());
+        //debugText.SetText(currentState.ToString());
 
         if(antiSpamKey > 1)
         {
