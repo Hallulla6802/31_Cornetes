@@ -16,7 +16,7 @@ public class ControlRivalStates : MonoBehaviour
     public float tiempoMaximo;
     public bool canMove = true;
     public Animator rivalSpriteAnim;
-    private AudioSourceManager _audioSourceManager;
+    public AudioSourceManager _audioSourceManager;
 
     public enum RivalState
     {

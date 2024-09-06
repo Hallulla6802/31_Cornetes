@@ -199,6 +199,7 @@ MonoBehaviour:
   playerVariables: {fileID: 1723245471}
   player: {fileID: 1724381224}
   deathScreenScript: {fileID: 640917898}
+  controlPlayerState: {fileID: 0}
 --- !u!114 &103372136 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1893586440499568228, guid: a644d73f4b56bcd4e89c65fbb85b6e60, type: 3}
@@ -1398,7 +1399,6 @@ MonoBehaviour:
   gameObjectsToActivate:
   - {fileID: 1724381224}
   - {fileID: 615502930}
-  - {fileID: 0}
   - {fileID: 1410682216}
 --- !u!4 &640917897
 Transform:
@@ -9260,6 +9260,7 @@ MonoBehaviour:
   tiempoMaximo: 1
   canMove: 1
   rivalSpriteAnim: {fileID: 615502933}
+  _audioSourceManager: {fileID: 1175806507}
   currentRivalState: 0
 --- !u!1 &1723245469
 GameObject:
