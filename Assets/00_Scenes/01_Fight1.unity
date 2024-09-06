@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b81e0f42a4c71134496ece4bfc489011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barraDeVida: {fileID: 1781491901}
+  barraDeVida: {fileID: 1686862090}
   rivalvariables: {fileID: 1723245470}
 --- !u!114 &76470140
 MonoBehaviour:
@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecf7806f68abbd2438f0695ac4b816cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barraDeVida: {fileID: 1686862090}
+  barraDeVida: {fileID: 1781491901}
   playervariables: {fileID: 1723245471}
 --- !u!4 &76470141
 Transform:
@@ -3715,6 +3715,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 413
       objectReference: {fileID: 0}
+    - target: {fileID: 1371837084265576866, guid: a644d73f4b56bcd4e89c65fbb85b6e60, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 72b769db14e80344a8e069b7a3feb025, type: 3}
     - target: {fileID: 2739571581051761877, guid: a644d73f4b56bcd4e89c65fbb85b6e60, type: 3}
       propertyPath: m_Name
       value: HealthBars
@@ -3723,21 +3727,69 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3401354557367715671, guid: a644d73f4b56bcd4e89c65fbb85b6e60, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 53d0ad3794228ea4eb30450198de872b, type: 3}
     - target: {fileID: 4313543546710464844, guid: a644d73f4b56bcd4e89c65fbb85b6e60, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -903
       objectReference: {fileID: 0}
+    - target: {fileID: 4698428212330471013, guid: a644d73f4b56bcd4e89c65fbb85b6e60, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7a4e871e74492c74db7c6ca9fafb1a6e, type: 3}
     - target: {fileID: 5116787678021154776, guid: a644d73f4b56bcd4e89c65fbb85b6e60, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439329484886510857, guid: a644d73f4b56bcd4e89c65fbb85b6e60, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 170.5775
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439329484886510857, guid: a644d73f4b56bcd4e89c65fbb85b6e60, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 170.5775
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439329484886510857, guid: a644d73f4b56bcd4e89c65fbb85b6e60, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 23.7377
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439329484886510857, guid: a644d73f4b56bcd4e89c65fbb85b6e60, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -23.7377
+      objectReference: {fileID: 0}
+    - target: {fileID: 5482199268667294911, guid: a644d73f4b56bcd4e89c65fbb85b6e60, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 172.6997
+      objectReference: {fileID: 0}
+    - target: {fileID: 5482199268667294911, guid: a644d73f4b56bcd4e89c65fbb85b6e60, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 172.6997
+      objectReference: {fileID: 0}
+    - target: {fileID: 5482199268667294911, guid: a644d73f4b56bcd4e89c65fbb85b6e60, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -21.339111
+      objectReference: {fileID: 0}
+    - target: {fileID: 5482199268667294911, guid: a644d73f4b56bcd4e89c65fbb85b6e60, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -21.339111
       objectReference: {fileID: 0}
     - target: {fileID: 5501977783516556453, guid: a644d73f4b56bcd4e89c65fbb85b6e60, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 410
       objectReference: {fileID: 0}
+    - target: {fileID: 5605750797666929843, guid: a644d73f4b56bcd4e89c65fbb85b6e60, type: 3}
+      propertyPath: m_Name
+      value: EnemyLife
+      objectReference: {fileID: 0}
     - target: {fileID: 5829159219583398242, guid: a644d73f4b56bcd4e89c65fbb85b6e60, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6232817097613717139, guid: a644d73f4b56bcd4e89c65fbb85b6e60, type: 3}
+      propertyPath: m_Name
+      value: PlayerLife
       objectReference: {fileID: 0}
     - target: {fileID: 6232817097613717139, guid: a644d73f4b56bcd4e89c65fbb85b6e60, type: 3}
       propertyPath: m_IsActive
@@ -3839,6 +3891,10 @@ PrefabInstance:
       propertyPath: m_FillAmount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8674037555929343604, guid: a644d73f4b56bcd4e89c65fbb85b6e60, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7a4e871e74492c74db7c6ca9fafb1a6e, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
