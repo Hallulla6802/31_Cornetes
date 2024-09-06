@@ -1,6 +1,7 @@
 using UnityEngine;
 //using TMPro;
 using System.Collections;
+using UnityEngine.UI;
 
 public class ControlPlayerState : MonoBehaviour
 {
@@ -10,8 +11,7 @@ public class ControlPlayerState : MonoBehaviour
     //public TextMeshProUGUI debugText;
     public RatingScript ratingScript;
     public GameObject golpePlayer;
-
-    public int returnToIdle;
+    public int returnToIdle;   
 
     [SerializeField] private int antiSpamKey = 0;
     private AudioSourceManager _audioSourceMan;
@@ -41,7 +41,7 @@ public class ControlPlayerState : MonoBehaviour
         if (Input.GetKey(KeyCode.L) && currentState == PlayerState.Idle) 
         {
             currentState = PlayerState.Blocking;
-            _audioSourceMan.bloqueo.Play();
+            _audioSourceMan.bloqueo.Play();            
             Debug.Log("Blocking");
         }
         else if (currentState == PlayerState.Blocking && !Input.GetKey(KeyCode.L))

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GolpePlayerScript : MonoBehaviour
 {
@@ -8,7 +9,8 @@ public class GolpePlayerScript : MonoBehaviour
     public int damage = 20;
     public int damageBlocked = 5;
     public Rival1Variables rival1Variables;
-
+    public Sprite[] portraits;
+    public Image uiPortrait;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -31,6 +33,7 @@ public class GolpePlayerScript : MonoBehaviour
                     default:
                         rival1Variables.rival1CurrentLife -= damage;
                         ratingScript.GiveRating(10);
+                        StartCoroutine(ChangePortrait());
                         Debug.Log("Se restaron " + damage + " puntos de vida al rival. Vida actual: " + rival1Variables.rival1CurrentLife);
                         break;
                 }
@@ -40,6 +43,12 @@ public class GolpePlayerScript : MonoBehaviour
                 Debug.LogError("No se encontr� el script 'ControlRivalStates' en el objeto Rival.");
             }
         }
+    }
+    private IEnumerator ChangePortrait()
+    {
+        uiPortrait.sprite = portraits[1];
+        yield return new WaitForSeconds(.3f);
+        uiPortrait.sprite = portraits[0];
     }
 }
 
