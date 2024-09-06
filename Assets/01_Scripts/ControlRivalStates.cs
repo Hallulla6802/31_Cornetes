@@ -15,7 +15,7 @@ public class ControlRivalStates : MonoBehaviour
     public float tiempoMinimo;
     public float tiempoMaximo;
     public bool canMove = true;
-    private Animator rivalSpriteAnim;
+    public Animator rivalSpriteAnim;
     private AudioSourceManager _audioSourceManager;
 
     public enum RivalState
@@ -29,11 +29,6 @@ public class ControlRivalStates : MonoBehaviour
     public RivalState currentRivalState = RivalState.Idle;
 
     private Coroutine stateChangeCoroutine;
-
-    private void Start()
-    {
-        _audioSourceManager = FindObjectOfType<AudioSourceManager>();
-    }
 
     public void StartStateCourutine()
     {

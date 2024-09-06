@@ -243,7 +243,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.82192, y: 540}
-  m_SizeDelta: {x: 1921.6438, y: 244.8067}
+  m_SizeDelta: {x: 1921.6438, y: 274.0157}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &1496633471354417406
 CanvasRenderer:
@@ -487,9 +487,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8be8d4b4bfb0fa4e8ea2940c642556f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textoTitulo: {fileID: 0}
-  textoDescripcion: {fileID: 0}
-  textoParentisis: {fileID: 0}
+  textoTitulo: {fileID: 581652813717578332}
+  textoDescripcion: {fileID: 7427163281514891976}
+  textoParentisis: {fileID: 744923829484365567}
   textoCambiadoTitulo: Levantate Una Vez Mas!
   textoCambiadoDescripcion: "Esta carta tiene un poder extra\xF1o."
   defaultTextoDescripcion: "Arrastra el mouse hacia alguna carta para leer su descripci\xF3n"
@@ -625,7 +625,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1531444679896906987
@@ -957,7 +957,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1922953432011678424
@@ -1945,9 +1945,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8be8d4b4bfb0fa4e8ea2940c642556f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textoTitulo: {fileID: 0}
-  textoDescripcion: {fileID: 0}
-  textoParentisis: {fileID: 0}
+  textoTitulo: {fileID: 581652813717578332}
+  textoDescripcion: {fileID: 7427163281514891976}
+  textoParentisis: {fileID: 744923829484365567}
   textoCambiadoTitulo: Levantate Una Vez Mas!
   textoCambiadoDescripcion: "Esta carta tiene un poder extra\xF1o."
   defaultTextoDescripcion: "Arrastra el mouse hacia alguna carta para leer su descripci\xF3n"
@@ -2719,9 +2719,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8be8d4b4bfb0fa4e8ea2940c642556f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textoTitulo: {fileID: 0}
-  textoDescripcion: {fileID: 0}
-  textoParentisis: {fileID: 0}
+  textoTitulo: {fileID: 581652813717578332}
+  textoDescripcion: {fileID: 7427163281514891976}
+  textoParentisis: {fileID: 744923829484365567}
   textoCambiadoTitulo: Enemigo mas Lento!
   textoCambiadoDescripcion: Al parecer el tiempo vuela.
   defaultTextoDescripcion: "Arrastra el mouse hacia alguna carta para leer su descripci\xF3n"
@@ -3485,9 +3485,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8be8d4b4bfb0fa4e8ea2940c642556f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textoTitulo: {fileID: 0}
-  textoDescripcion: {fileID: 0}
-  textoParentisis: {fileID: 0}
+  textoTitulo: {fileID: 581652813717578332}
+  textoDescripcion: {fileID: 7427163281514891976}
+  textoParentisis: {fileID: 744923829484365567}
   textoCambiadoTitulo: "Mas Da\xF1o!"
   textoCambiadoDescripcion: Un volcan exploto y esta carta salio.
   defaultTextoDescripcion: "Arrastra el mouse hacia alguna carta para leer su descripci\xF3n"
@@ -3637,9 +3637,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8be8d4b4bfb0fa4e8ea2940c642556f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textoTitulo: {fileID: 0}
-  textoDescripcion: {fileID: 0}
-  textoParentisis: {fileID: 0}
+  textoTitulo: {fileID: 581652813717578332}
+  textoDescripcion: {fileID: 7427163281514891976}
+  textoParentisis: {fileID: 744923829484365567}
   textoCambiadoTitulo: Curar 50 de Vida!
   textoCambiadoDescripcion: Un girasol te da de su sol.
   defaultTextoDescripcion: "Arrastra el mouse hacia alguna carta para leer su descripci\xF3n"
@@ -4593,9 +4593,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8be8d4b4bfb0fa4e8ea2940c642556f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textoTitulo: {fileID: 0}
-  textoDescripcion: {fileID: 0}
-  textoParentisis: {fileID: 0}
+  textoTitulo: {fileID: 581652813717578332}
+  textoDescripcion: {fileID: 7427163281514891976}
+  textoParentisis: {fileID: 744923829484365567}
   textoCambiadoTitulo: Curar 50 de Vida!
   textoCambiadoDescripcion: Un girasol te da de su sol.
   defaultTextoDescripcion: "Arrastra el mouse hacia alguna carta para leer su descripci\xF3n"
@@ -4824,9 +4824,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8be8d4b4bfb0fa4e8ea2940c642556f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textoTitulo: {fileID: 0}
-  textoDescripcion: {fileID: 0}
-  textoParentisis: {fileID: 0}
+  textoTitulo: {fileID: 581652813717578332}
+  textoDescripcion: {fileID: 7427163281514891976}
+  textoParentisis: {fileID: 744923829484365567}
   textoCambiadoTitulo: Enemigo mas Lento!
   textoCambiadoDescripcion: Al parecer el tiempo vuela.
   defaultTextoDescripcion: "Arrastra el mouse hacia alguna carta para leer su descripci\xF3n"
@@ -5189,9 +5189,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8be8d4b4bfb0fa4e8ea2940c642556f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textoTitulo: {fileID: 0}
-  textoDescripcion: {fileID: 0}
-  textoParentisis: {fileID: 0}
+  textoTitulo: {fileID: 581652813717578332}
+  textoDescripcion: {fileID: 7427163281514891976}
+  textoParentisis: {fileID: 744923829484365567}
   textoCambiadoTitulo: "Mas Da\xF1o!"
   textoCambiadoDescripcion: Un volcan exploto y esta carta salio.
   defaultTextoDescripcion: "Arrastra el mouse hacia alguna carta para leer su descripci\xF3n"
@@ -5538,7 +5538,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &9176857321727219179

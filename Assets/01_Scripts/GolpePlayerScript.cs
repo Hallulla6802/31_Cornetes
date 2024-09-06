@@ -10,6 +10,7 @@ public class GolpePlayerScript : MonoBehaviour
     public int damageBlocked = 5;
     public Rival1Variables rival1Variables;
     public Animator rival1PortAnim;
+    public Animator rival1SpriteAnim;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Verifica si el objeto colisionado tiene la etiqueta "Rival"
@@ -32,6 +33,7 @@ public class GolpePlayerScript : MonoBehaviour
                         rival1Variables.rival1CurrentLife -= damage;
                         ratingScript.GiveRating(10);
                         rival1PortAnim.Play("Punched");
+                        rival1SpriteAnim.Play("Punched");
                         Debug.Log("Se restaron " + damage + " puntos de vida al rival. Vida actual: " + rival1Variables.rival1CurrentLife);
                         break;
                 }
