@@ -25,7 +25,7 @@ public class DeathScreenScript : MonoBehaviour
         
         _audioSourceManager.derrota.Play();
         _audioSourceManager.ringbell.Play();
-        _audioSourceManager.crowdLoop.Stop();
+        _audioSourceManager.crowdLoop.mute = true;
 
     }
     public void TriggerRatingScreen()
@@ -33,7 +33,7 @@ public class DeathScreenScript : MonoBehaviour
         ratingScreen.SetActive(true);
         _audioSourceManager.derrota.Play();
         _audioSourceManager.ringbell.Play();
-        _audioSourceManager.crowdLoop.Stop();
+        _audioSourceManager.crowdLoop.mute = true;
 
         _controlRivalState.StopCoroutine(_controlRivalState.ChangeStateRandomly());
     }
@@ -42,7 +42,7 @@ public class DeathScreenScript : MonoBehaviour
         winScreen.SetActive(true);
         _audioSourceManager.taunt.Play();
         _audioSourceManager.ringbell.Play();
-        _audioSourceManager.crowdLoop.Stop();
+        _audioSourceManager.crowdLoop.mute = true;
 
         _controlRivalState.StopCoroutine(_controlRivalState.ChangeStateRandomly());
     }

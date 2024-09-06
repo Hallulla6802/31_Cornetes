@@ -30,6 +30,10 @@ public class BetweenLevels : MonoBehaviour
     {
         StartCoroutine(FadeOut(3));
     }
+    public void GoMenu()
+    {
+        StartCoroutine(FadeOut(0));
+    }
 
     public void QuitGame()
     {

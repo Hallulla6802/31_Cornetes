@@ -89,7 +89,7 @@ public class AudioManager : MonoBehaviour
         float MusicValue = PlayerPrefs.GetFloat("MusicValue");
         musicVolumeSlider.value = MusicValue;
         AudioListener.volume = MusicValue;
-        if (!PlayerPrefs.HasKey("GeneralValue"))
+        if (!PlayerPrefs.HasKey("MusicValue"))
         {
             musicVolumeSlider.value = 1;
             AudioListener.volume = 1f;
@@ -98,7 +98,7 @@ public class AudioManager : MonoBehaviour
         float sfxValue = PlayerPrefs.GetFloat("SFXValue");
         sfxVolumeSlider.value = sfxValue;
         AudioListener.volume = sfxValue;
-        if (!PlayerPrefs.HasKey("GeneralValue"))
+        if (!PlayerPrefs.HasKey("SFXValue"))
         {
             sfxVolumeSlider.value = 1;
             AudioListener.volume = 1f;

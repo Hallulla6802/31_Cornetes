@@ -5,35 +5,21 @@ using UnityEngine.UI;
 
 public class PerkRandomizer : MonoBehaviour
 {
-    public List<Button> perkButtons;
-    private List<Vector3> ogPositions = new List<Vector3>();
-
-    private void Start()
+    public GameObject[] cartas;
+    void Start()
     {
-        //Save buttons og position
-        foreach (Button button in perkButtons)
-        {
-            ogPositions.Add(button.transform.position);
-        }
-
-        RandomizePositions();
+        RamdomizaLasCartas();
     }
-
-    public void RandomizePositions()
+    void RamdomizaLasCartas()
     {
-        List<Vector3> positions = new List<Vector3>(ogPositions);
-
-        for (int i = 0; i < positions.Count; i++) //Shuffle posible positions
+        foreach(GameObject obj in cartas)
         {
-            Vector3 temp = positions[i];
-            int randomIndex = Random.Range(i, positions.Count);
-            positions[i] = positions[randomIndex];
-            positions[randomIndex] = temp;
+            obj.SetActive(false);
         }
-
-        for (int i = 0; i < perkButtons.Count; i++) //Get buttons back to their porsitions
+        int ramdomIndex = Random.Range(0, cartas.Length);
+        if(cartas.Length > 0)
         {
-            perkButtons[i].transform.position = positions[i];
+            cartas[ramdomIndex].SetActive(true);
         }
     }
 }
