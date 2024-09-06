@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ActivarPerkScript : MonoBehaviour
 {
@@ -10,7 +11,8 @@ public class ActivarPerkScript : MonoBehaviour
     public GolpePlayerScript golpeplayer;
     public ControlRivalStates controlRivalStates;
     public GameObject player;
-    public TMP_Text perkNameText;
+    public Image perkUIImage;
+    public ParticleSystem perkParticle;
 
     public int seLeAgregaSalud;
     public int seLeAgregaDamage;
@@ -38,6 +40,7 @@ public class ActivarPerkScript : MonoBehaviour
                     else
                     {
                         playerVariables.playerCurrentLife += seLeAgregaSalud;
+                        perkParticle.Play();
                         DataManager.perkElegido = 0;
                     }
                     break;
@@ -46,12 +49,14 @@ public class ActivarPerkScript : MonoBehaviour
                 case 2:
                     golpeplayer.damage += seLeAgregaDamage;
                     golpeplayer.damageBlocked += seLeAgregaDamageoDelBlockeo;
+                    perkParticle.Play();
                     DataManager.perkElegido = 0;
                     break;
 
                 case 3:
                     controlRivalStates.tiempoMinimo += seLeAgregaTiempoMinimo;
                     controlRivalStates.tiempoMaximo += seLeAgregaTiempoMaximo;
+                    perkParticle.Play();
                     DataManager.perkElegido = 0;
                     break;
             }
@@ -63,12 +68,13 @@ public class ActivarPerkScript : MonoBehaviour
             playerVariables.playerCurrentLife = 80f;
             player.SetActive(true);
             DataManager.perkElegido = 0;
+            perkParticle.Play();
         }
         
 
     }
-    public void UpdatePerkName(string perkName)
+    public void UpdatePerkName(Sprite perkImage)
     {   
-        perkNameText.text = perkName;      
+        perkUIImage.sprite = perkImage;
     }
 }

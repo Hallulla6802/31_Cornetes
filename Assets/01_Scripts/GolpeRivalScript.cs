@@ -8,10 +8,13 @@ public class GolpeRivalScript : MonoBehaviour
     public float damage = 25;  //daño
     public float damageBlocked = 10; //dañoBloqueando
     public PlayerVariables playerVariables;
-
-    public Sprite[] portraits;
-    public Image uiPortrait;
-
+    public Animator playerPortAnim;
+    public Animator playerSpriteAnim;
+    private AudioSourceManager _audioSourceManager;
+    void Awake()
+    {
+         _audioSourceManager = FindObjectOfType<AudioSourceManager>();
+    } 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Verifica si el objeto colisionado tiene la etiqueta "Player"
@@ -31,11 +34,15 @@ public class GolpeRivalScript : MonoBehaviour
                         break;
                     default:
                         playerVariables.playerCurrentLife -= damage;
-                        StartCoroutine(ChangePortrait());
+                        playerPortAnim.Play("Punched");
+                        playerSpriteAnim.Play("Punched");
+                        _audioSourceManager.golpeRecibido.Play();
                         if(playerStates.currentState == ControlPlayerState.PlayerState.Taunting)
                         {
                             playerStates.InterrumptTaunt();
-                            StartCoroutine(ChangePortrait());
+                            playerPortAnim.Play("Punched");
+                            playerSpriteAnim.Play("Punched");
+                            _audioSourceManager.golpeRecibido.Play();
                         }
                         Debug.Log("Se restaron " + damage + " puntos de vida al rival. Vida actual: " + playerVariables.playerCurrentLife);
                         break;
@@ -46,12 +53,6 @@ public class GolpeRivalScript : MonoBehaviour
                 Debug.LogError("No se encontro el script 'ControlRivalStates' en el objeto Rival.");
             }
         }
-    }
-    private IEnumerator ChangePortrait()
-    {
-        uiPortrait.sprite = portraits[1];
-        yield return new WaitForSeconds(.3f);
-        uiPortrait.sprite = portraits[0];
     }
 }
 

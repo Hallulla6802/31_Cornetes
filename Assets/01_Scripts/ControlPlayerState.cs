@@ -10,9 +10,10 @@ public class ControlPlayerState : MonoBehaviour
 
     //public TextMeshProUGUI debugText;
     public RatingScript ratingScript;
+    public Animator playerSpriteAnim;
     public GameObject golpePlayer;
     public int returnToIdle;   
-
+    public bool canMove = true;
     [SerializeField] private int antiSpamKey = 0;
     private AudioSourceManager _audioSourceMan;
 
@@ -37,41 +38,52 @@ public class ControlPlayerState : MonoBehaviour
 
     private void Update()
     {
-        //Blocking 
-        if (Input.GetKey(KeyCode.L) && currentState == PlayerState.Idle) 
+        if(canMove)
         {
-            currentState = PlayerState.Blocking;
-            _audioSourceMan.bloqueo.Play();            
-            Debug.Log("Blocking");
+            if (Input.GetKey(KeyCode.L) && currentState == PlayerState.Idle) 
+            {
+                currentState = PlayerState.Blocking;
+                _audioSourceMan.bloqueo.Play();   
+                playerSpriteAnim.Play("Block");         
+                Debug.Log("Blocking");
+            }
+            else if (currentState == PlayerState.Blocking && !Input.GetKey(KeyCode.L))
+            {
+                SetState(PlayerState.Idle);
+                playerSpriteAnim.Play("Idle");
+                Debug.Log("Returning to Idle from Blocking");
+            }
+            if (currentState == PlayerState.Idle && Input.GetKeyDown(KeyCode.H) && antiSpamKey == 0)
+            {
+                SetState(PlayerState.Punching);
+                playerSpriteAnim.Play("Punching");
+                _audioSourceMan.golpe.Play();
+                Debug.Log("Punching");
+            }
+            if(currentState == PlayerState.Idle && Input.GetKeyDown(KeyCode.J)&& antiSpamKey == 0)
+            {
+                ratingScript.GiveRating(20);
+                _audioSourceMan.taunt.Play();
+                playerSpriteAnim.Play("Taunt");
+                SetState(PlayerState.Taunting);
+                Debug.Log("Tauting");
+            }
+
+
+
+
+            // Update the debug text
+            //debugText.SetText(currentState.ToString());
+
+            if(antiSpamKey > 1)
+            {
+                antiSpamKey = 1;
+            }
+
         }
-        else if (currentState == PlayerState.Blocking && !Input.GetKey(KeyCode.L))
+        else
         {
-            SetState(PlayerState.Idle);
-            Debug.Log("Returning to Idle from Blocking");
-        }
-        if (currentState == PlayerState.Idle && Input.GetKeyDown(KeyCode.H) && antiSpamKey == 0)
-        {
-            SetState(PlayerState.Punching);
-            _audioSourceMan.golpe.Play();
-            Debug.Log("Punching");
-        }
-        if(currentState == PlayerState.Idle && Input.GetKeyDown(KeyCode.J)&& antiSpamKey == 0)
-        {
-            ratingScript.GiveRating(20);
-            _audioSourceMan.taunt.Play();
-            SetState(PlayerState.Taunting);
-            Debug.Log("Tauting");
-        }
-
-
-
-
-        // Update the debug text
-        //debugText.SetText(currentState.ToString());
-
-        if(antiSpamKey > 1)
-        {
-            antiSpamKey = 1;
+            return;
         }
     }
 
@@ -80,13 +92,11 @@ public class ControlPlayerState : MonoBehaviour
         switch (currentState)
         {
             case PlayerState.Idle:
-                golpePlayer.SetActive(false);
-                // Whatever Idle does, does nothin-
+                golpePlayer.SetActive(false);    
                 break;
 
             case PlayerState.Punching:
-                golpePlayer.SetActive(true);
-                // Implement the logic of hitting and taking life from the Rival
+                golpePlayer.SetActive(true);               
                 break;
 
             case PlayerState.Blocking:
@@ -137,6 +147,7 @@ public class ControlPlayerState : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         SetState(PlayerState.Idle);
+        playerSpriteAnim.Play("Idle");
         antiSpamKey = 0;
         Debug.Log("Returning to Idle");
     }

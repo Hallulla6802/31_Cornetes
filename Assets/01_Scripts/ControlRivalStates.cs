@@ -14,8 +14,8 @@ public class ControlRivalStates : MonoBehaviour
 
     public float tiempoMinimo;
     public float tiempoMaximo;
-
-    private Animator _anim;
+    public bool canMove = true;
+    private Animator rivalSpriteAnim;
     private AudioSourceManager _audioSourceManager;
 
     public enum RivalState
@@ -32,7 +32,6 @@ public class ControlRivalStates : MonoBehaviour
 
     private void Start()
     {
-        _anim = GetComponent<Animator>();
         _audioSourceManager = FindObjectOfType<AudioSourceManager>();
     }
 
@@ -65,7 +64,7 @@ public class ControlRivalStates : MonoBehaviour
             
             case RivalState.Blocking:
                 golpeRival.SetActive(false);
-                _audioSourceManager.bloqueo.Play();
+               _audioSourceManager.bloqueo.Play();
                 break;
         }
     }
@@ -74,16 +73,45 @@ public class ControlRivalStates : MonoBehaviour
     {
         while (true)
         {
-            
-            yield return new WaitForSeconds(Random.Range(tiempoMinimo, tiempoMaximo));  // original 0.5f, 1f
+            if(canMove)
+            {
+                yield return new WaitForSeconds(Random.Range(tiempoMinimo, tiempoMaximo));  // original 0.5f, 1f
 
-            // Random state
-            currentRivalState = (RivalState)Random.Range(0, System.Enum.GetValues(typeof(RivalState)).Length);
-            
-            Debug.Log("Rival State: " + currentRivalState);
-            //debugRivalText.text = currentRivalState.ToString();
+                // Random state
+                currentRivalState = (RivalState)Random.Range(0, System.Enum.GetValues(typeof(RivalState)).Length);
+                CambiarRivalSprite();
+                Debug.Log("Rival State: " + currentRivalState);
+                //debugRivalText.text = currentRivalState.ToString();
+            }
+            else
+            {
+                yield break;
+            }
 
         }
     }
 
+    private void CambiarRivalSprite()
+    {
+        switch (currentRivalState)
+        {
+            case RivalState.Idle:
+                rivalSpriteAnim.Play("Idle");
+                //_anim.PlayIdle
+                break;
+
+            /* case RivalState.PreparingPunch:
+                rivalSpriteAnim.Play("");
+                //_anim.PlayPreparingPunch             
+                break; */
+            
+            case RivalState.Punching:
+                rivalSpriteAnim.Play("Punching");
+                break;
+            
+            case RivalState.Blocking:
+                rivalSpriteAnim.Play("Block");
+                break;
+        }
+    }
 }

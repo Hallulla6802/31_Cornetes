@@ -28,6 +28,7 @@ public class CanvasPerkScript : MonoBehaviour
         cartaNoSelecionable.SetActive(false);
 
         _audioSourceMan = FindObjectOfType<AudioSourceManager>();
+        _audioSourceMan.bgmSource.clip = _audioSourceMan.battleMusic;
     }
 
     private void Update()
@@ -40,22 +41,22 @@ public class CanvasPerkScript : MonoBehaviour
 
     public void AbrirPerk1() //Perk Curativo
     {
-        _audioSourceMan.healingPowerUp.Play();
+        _audioSourceMan.powerupSource.PlayOneShot(_audioSourceMan.healingPowerUp);
         panelPerk1.SetActive(true);
     }
     public void AbrirPerk2() //Perk Fuerza
     {
-        _audioSourceMan.strenghtPowerUp.Play();
+        _audioSourceMan.powerupSource.PlayOneShot(_audioSourceMan.strenghtPowerUp);
         panelPerk2.SetActive(true);
     }
     public void AbrirPerk3() // Perk Velocidad
     {
-        _audioSourceMan.speedPowerUp.Play();
+        _audioSourceMan.powerupSource.PlayOneShot(_audioSourceMan.speedPowerUp);
         panelPerk3.SetActive(true);
     }
     public void AbrirPerk4() // Perk Revivir
     {
-        _audioSourceMan.resurrectPowerUp.Play();
+        _audioSourceMan.powerupSource.PlayOneShot(_audioSourceMan.resurrectPowerUp);
         panelPerk4.SetActive(true);
     }
 
@@ -103,6 +104,7 @@ public class CanvasPerkScript : MonoBehaviour
     {
         canvasPerk.SetActive(false);
         _audioSourceMan.ringbell.Play();
+        _audioSourceMan.bgmSource.Play();
         _audioSourceMan.crowdLoop.Play();
         Debug.Log("Perk elegido:" + DataManager.perkElegido);
         

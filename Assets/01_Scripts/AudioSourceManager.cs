@@ -5,23 +5,29 @@ using UnityEngine.Audio;
 
 public class AudioSourceManager : MonoBehaviour
 {
+    public AudioSource sfxSource;
+    public AudioSource bgmSource;
+    public AudioSource powerupSource;
+
     [Header("Player & Rival Sounds")]
-    [Space]
+    [Space]  
 
     public AudioSource bloqueo;
     public AudioSource golpeRecibido;
     public AudioSource golpe;
-    public AudioSource healingPowerUp;
-    public AudioSource resurrectPowerUp;
-    public AudioSource speedPowerUp;
-    public AudioSource strenghtPowerUp;
+    public AudioClip healingPowerUp;
+    public AudioClip resurrectPowerUp;
+    public AudioClip speedPowerUp;
+    public AudioClip strenghtPowerUp;
     public AudioSource taunt;
 
     [Header("Background Sounds")]
     [Space]
-
     public AudioSource crowdLoop;
     public AudioSource derrota; 
     public AudioSource ringbell;
     
+    [Header("Music Sounds")]
+    [Space]
+    public AudioClip battleMusic;
 }

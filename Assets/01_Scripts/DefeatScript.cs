@@ -25,7 +25,7 @@ public class DefeatScript : MonoBehaviour
             player.SetActive(false); //Fall - Can Activate 4th Perk
         }        
         else if(playerVariables.playerCurrentLife <= 0 & DataManager.perkElegido != 4)
-        {
+        {   
             player.SetActive(false);
             deathScreenScript.TriggerDeathScreen(); //Fall - Used 4th Perk
         }
