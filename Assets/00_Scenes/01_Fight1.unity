@@ -7545,6 +7545,10 @@ PrefabInstance:
       propertyPath: m_PixelsPerUnitMultiplier
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6282182215613737578, guid: af9441f76fcd51041b7a447719ae5464, type: 3}
+      propertyPath: m_text
+      value: Elige tu carta.
+      objectReference: {fileID: 0}
     - target: {fileID: 6324971024770313843, guid: af9441f76fcd51041b7a447719ae5464, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -7569,6 +7573,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 1690887656}
+    - target: {fileID: 7427163281514891976, guid: af9441f76fcd51041b7a447719ae5464, type: 3}
+      propertyPath: m_fontSize
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 7427163281514891976, guid: af9441f76fcd51041b7a447719ae5464, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 7427163281514891976, guid: af9441f76fcd51041b7a447719ae5464, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7874636789800076102, guid: af9441f76fcd51041b7a447719ae5464, type: 3}
       propertyPath: m_IsActive
       value: 0
